@@ -59,14 +59,14 @@ export default function ButtonAppBar() {
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}>
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={handleClose}>Logs</MenuItem>
+            <MenuItem onClick={handleClose}>Manage</MenuItem>
+            <MenuItem onClick={handleClose}>Sign Out</MenuItem>
           </Menu>
           <Typography variant="h6" className={classes.title}>
             House Plant Tracker
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit">Sign In</Button>
         </Toolbar>
       </AppBar>
     </div>
