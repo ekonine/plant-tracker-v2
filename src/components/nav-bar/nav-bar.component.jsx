@@ -19,6 +19,9 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+  menuContainer: {
+    marginTop: '60px'
+  }
 }));
 
 export default function ButtonAppBar() {
@@ -51,6 +54,7 @@ export default function ButtonAppBar() {
           </IconButton>
           <Menu
             id="simple-menu"
+            className={classes.menuContainer}
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
