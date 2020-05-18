@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,11 +21,15 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   menuContainer: {
-    marginTop: '60px'
-  }
+    marginTop: '60px',
+  },
+  link: {
+    color: 'black',
+    textDecoration: 'none',
+  },
 }));
 
-export default function ButtonAppBar() {
+export default function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const classes = useStyles();
@@ -48,8 +53,7 @@ export default function ButtonAppBar() {
             aria-label="menu"
             aria-controls="simple-menu"
             aria-haspopup="true"
-            onClick={handleClick}
-          >
+            onClick={handleClick}>
             <MenuIcon />
           </IconButton>
           <Menu
@@ -59,9 +63,15 @@ export default function ButtonAppBar() {
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}>
-            <MenuItem onClick={handleClose}>Logs</MenuItem>
-            <MenuItem onClick={handleClose}>Manage</MenuItem>
-            <MenuItem onClick={handleClose}>Sign Out</MenuItem>
+            <Link className={classes.link} to="/logs">
+              <MenuItem className={classes.link} onClick={handleClose}>Logs</MenuItem>
+            </Link>
+            <Link className={classes.link} to="/manage">
+              <MenuItem className={classes.link} onClick={handleClose}>Manage</MenuItem>
+            </Link>
+            <Link className={classes.link} to="/">
+              <MenuItem className={classes.link} onClick={handleClose}>Sign Out</MenuItem>
+            </Link>
           </Menu>
           <Typography variant="h6" className={classes.title}>
             House Plant Tracker
