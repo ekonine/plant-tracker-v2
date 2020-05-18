@@ -40,7 +40,6 @@ export default function Manage() {
       plantBoughtLoc: 'Hipster Shop 2'
     },
   ]);
-  const [plantSelected, setPlantSelected] = React.useState('')
 
   //Router params
   const { plantId } = useParams();
