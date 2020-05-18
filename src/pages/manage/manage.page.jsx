@@ -1,14 +1,13 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import CustomCard from '../../components/custom-card/custom-card.component.jsx';
+import CustomCardList from '../../components/custom-card-list/custom-card-list.component.jsx';
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  cardContainer: {
     display: 'flex',
     justifyContent: 'center',
-  },
-  cardContainer: {
     marginTop: '20px',
+    width: '100vw'
   },
 }));
 
@@ -19,19 +18,19 @@ export default function Manage() {
     {
       plantSpecies: 'Monstera',
       plantNickname: 'Monstera Guy',
-      plantWaterStatus: 'Watered'
+      plantWaterStatus: 'Watered',
     },
     {
       plantSpecies: 'Zeze Plant',
       plantNickname: 'Zeze Guy',
-      plantWaterStatus: 'Not Watered'
+      plantWaterStatus: 'Not Watered',
     },
   ]);
 
   return (
-    <div className={classes.root}>
+    <div>
       <div className={classes.cardContainer}>
-        <CustomCard />
+        <CustomCardList plantData={plantData}/>
       </div>
     </div>
   );

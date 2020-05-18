@@ -1,7 +1,30 @@
 import React from 'react';
+import {makeStyles} from '@material-ui/core/styles'
+import CustomCard from '../custom-card/custom-card.component';
 
-export default function() CustomCardList {
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+  }
+})
+
+export default function CustomCardList({plantData}) {
+  const classes = useStyles();
+
   return(
-    <div>List</div>
+    <div className={classes.root}>
+      {
+        plantData.map((plant, i) => {
+          return(
+            <CustomCard 
+              key={i}
+              plantSpecies={plant.plantSpecies}
+              plantNickname={plant.plantNickname}
+              plantWaterStatus={plant.plantWaterStatus}
+            />
+          );
+        })
+      }
+    </div>
   );
 }

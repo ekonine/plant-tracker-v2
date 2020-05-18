@@ -9,11 +9,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    margin: 10
   },
   title: {
     fontSize: 14,
@@ -29,7 +25,6 @@ export default function CustomCard({
   plantWaterStatus,
 }) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root}>
