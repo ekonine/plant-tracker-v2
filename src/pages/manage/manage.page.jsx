@@ -40,10 +40,10 @@ export default function Manage() {
       plantBoughtLoc: 'Hipster Shop 2'
     },
   ]);
-  const [plantSelected, setPlantSelected] = React.useState('2')
+  const [plantSelected, setPlantSelected] = React.useState('')
 
   //Router params
-  const { plantid } = useParams();
+  const { plantId } = useParams();
 
   return (
     <div>
@@ -53,8 +53,8 @@ export default function Manage() {
             <CustomCardList plantData={plantData}/>
           </div>
         </Route>
-        <Route path="/manage/detail/:plantid">
-          <Detail plantid={plantid}/>
+        <Route path="/manage/detail/:plantId">
+          <Detail plantData={plantData}/>
         </Route>
       </Switch>
     </div>

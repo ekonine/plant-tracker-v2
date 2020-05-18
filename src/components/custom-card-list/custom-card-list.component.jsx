@@ -17,7 +17,7 @@ export default function CustomCardList({plantData}) {
         plantData.map((plant, i) => {
           return(
             <CustomCard 
-              key={i}
+              plantId={i}
               plantSpecies={plant.plantSpecies}
               plantNickname={plant.plantNickname}
               plantWaterStatus={plant.plantWaterStatus}
