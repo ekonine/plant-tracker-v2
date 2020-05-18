@@ -64,13 +64,13 @@ export default function NavBar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}>
             <Link className={classes.link} to="/logs">
-              <MenuItem className={classes.link} onClick={handleClose}>Logs</MenuItem>
+              <MenuItem onClick={handleClose}>Logs</MenuItem>
             </Link>
             <Link className={classes.link} to="/manage">
-              <MenuItem className={classes.link} onClick={handleClose}>Manage</MenuItem>
+              <MenuItem onClick={handleClose}>Manage</MenuItem>
             </Link>
             <Link className={classes.link} to="/">
-              <MenuItem className={classes.link} onClick={handleClose}>Sign Out</MenuItem>
+              <MenuItem onClick={handleClose}>Sign Out</MenuItem>
             </Link>
           </Menu>
           <Typography variant="h6" className={classes.title}>
