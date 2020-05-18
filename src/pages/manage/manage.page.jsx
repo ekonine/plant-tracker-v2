@@ -2,8 +2,9 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import CustomCardList from '../../components/custom-card-list/custom-card-list.component.jsx';
 import Detail from '../detail/detail.page.jsx';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, useParams} from 'react-router-dom';
 
+//Styles
 const useStyles = makeStyles({
   cardContainer: {
     display: 'flex',
@@ -16,8 +17,10 @@ const useStyles = makeStyles({
 export default function Manage() {
   const classes = useStyles();
 
+  //State
   const [plantData, setPlantData] = React.useState([
     {
+      plantId: '0', 
       plantSpecies: 'Monstera',
       plantNickname: 'Monstera Guy',
       plantWaterStatus: 'Watered',
@@ -27,6 +30,7 @@ export default function Manage() {
       plantBoughtLoc: 'Hipster Shop'
     },
     {
+      plantId: '1',
       plantSpecies: 'Zeze Plant',
       plantNickname: 'Zeze Guy',
       plantWaterStatus: 'Not Watered',
@@ -36,6 +40,10 @@ export default function Manage() {
       plantBoughtLoc: 'Hipster Shop 2'
     },
   ]);
+  const [plantSelected, setPlantSelected] = React.useState('2')
+
+  //Router params
+  const { plantid } = useParams();
 
   return (
     <div>
@@ -45,8 +53,8 @@ export default function Manage() {
             <CustomCardList plantData={plantData}/>
           </div>
         </Route>
-        <Route path="/manage/detail">
-          <Detail />
+        <Route path="/manage/detail/:plantid">
+          <Detail plantid={plantid}/>
         </Route>
       </Switch>
     </div>
