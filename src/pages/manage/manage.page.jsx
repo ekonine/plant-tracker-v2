@@ -5,14 +5,14 @@ import Detail from '../detail/detail.page.jsx';
 import {Switch, Route, useParams} from 'react-router-dom';
 
 //Styles
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   cardContainer: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: theme.spacing(2),
     width: '100vw'
   },
-});
+}));
 
 export default function Manage() {
   const classes = useStyles();

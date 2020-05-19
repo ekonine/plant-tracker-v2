@@ -11,13 +11,13 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'center',
     '& > *': {
-      margin: '30px',
+      margin: theme.spacing(4),
       width: theme.spacing(60),
       height: theme.spacing(80),
     },
   },
   paper: {
-    padding: 30
+    padding: theme.spacing(4)
   },
   title: {
     fontSize: 14

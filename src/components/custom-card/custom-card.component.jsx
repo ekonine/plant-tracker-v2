@@ -7,18 +7,18 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     minWidth: 275,
-    margin: 10,
+    margin: theme.spacing(2),
   },
   title: {
     fontSize: 14,
   },
   pos: {
-    marginBottom: 12,
+    marginBottom: theme.spacing(20),
   },
-});
+}));
 
 export default function CustomCard({
   plantId,

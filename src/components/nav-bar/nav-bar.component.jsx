@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   menuContainer: {
-    marginTop: 60,
+    marginTop: theme.spacing(5),
   },
   link: {
     color: 'black',
