@@ -42,7 +42,9 @@ export default function CustomCard({
         </Typography>
       </CardContent>
       <CardActions>
-        <Link to={`/manage/detail/${plantId}`}>
+        <Link to={{
+          pathname: `/manage/detail/${plantId}`,
+        }}>
           <Button size="medium">View</Button>
         </Link>
       </CardActions>

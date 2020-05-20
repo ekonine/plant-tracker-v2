@@ -2,7 +2,7 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import CustomCardList from '../../components/custom-card-list/custom-card-list.component.jsx';
 import Detail from '../detail/detail.page.jsx';
-import {Switch, Route, useParams} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 
 //Styles
 const useStyles = makeStyles(theme => ({
@@ -40,9 +40,6 @@ export default function Manage() {
       plantBoughtLoc: 'Hipster Shop 2'
     },
   ]);
-
-  //Router params
-  const { plantId } = useParams();
 
   return (
     <div>
