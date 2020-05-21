@@ -164,9 +164,11 @@ const EnhancedTableToolbar = (props) => {
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-          Water Log
-        </Typography>
+        <div>
+          <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
+            Water Log
+          </Typography>
+        </div>
       )}
 
       {numSelected > 0 ? (

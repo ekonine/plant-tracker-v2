@@ -64,10 +64,10 @@ export default function NavBar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}>
             <Link className={classes.link} to="/logs">
-              <MenuItem onClick={handleClose}>Logs</MenuItem>
+              <MenuItem onClick={handleClose}>Manage</MenuItem>
             </Link>
             <Link className={classes.link} to="/manage">
-              <MenuItem onClick={handleClose}>Manage</MenuItem>
+              <MenuItem onClick={handleClose}>Logs</MenuItem>
             </Link>
             <Link className={classes.link} to="/">
               <MenuItem onClick={handleClose}>Sign Out</MenuItem>

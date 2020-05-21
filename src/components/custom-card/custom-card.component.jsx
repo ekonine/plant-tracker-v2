@@ -32,20 +32,25 @@ export default function CustomCard({
     <Card className={classes.root}>
       <CardContent>
         <Typography className={classes.title} color="textPrimary" gutterBottom>
-          {plantSpecies}
+          {plantNickname}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
           {plantWaterStatus}
         </Typography>
         <Typography variant="body2" component="p">
-          {plantNickname}
+          {plantSpecies}
         </Typography>
       </CardContent>
       <CardActions>
         <Link to={{
           pathname: `/manage/detail/${plantId}`,
-        }}>
-          <Button size="medium">View</Button>
+        }} style={{textDecoration: 'none'}}>
+          <Button variant="contained" size="medium" color="primary">View</Button>
+        </Link>
+        <Link to={{
+          pathname: `/manage/water/${plantId}`,
+        }} style={{textDecoration: 'none'}}>
+          <Button variant="contained" size="medium" color="secondary">Water</Button>
         </Link>
       </CardActions>
     </Card>
