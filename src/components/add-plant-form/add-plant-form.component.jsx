@@ -3,6 +3,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,10 +18,19 @@ const useStyles = makeStyles(theme => ({
   textBox: {
     margin: theme.spacing(1),
   },
+  numberBox: {
+    margin: theme.spacing(1), 
+    width: '15ch'
+  },
   title: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(2),
     fontSize: 24,
   },
+  button: {
+    textAlign: 'center',
+    //One of these days I'll understand how flexbox works
+    marginTop: theme.spacing(15)
+  }
 }));
 
 export default function CustomForm() {
@@ -29,23 +39,56 @@ export default function CustomForm() {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <Typography className={classes.title}>Add Plant</Typography>
+        <Typography className={classes.title}>Add a new plant to your collection</Typography>
         <form noValidate autoComplete="off">
-          <div>
+          <div className={classes.root}>
             <TextField
               className={classes.textBox}
               id="plantSpecies"
               label="Species"
-              defaultValue="Species"
+              variant="standard"
             />
             <TextField
               className={classes.textBox}
               id="plantNickname"
               label="Nickname"
-              defaultValue="Nickname"
+              variant="standard"
+            />
+          </div>
+          <div className={classes.root}>
+            <TextField
+              className={classes.textBox}
+              id="plantHouseLoc"
+              label="Where is the plant kept?"
+              variant="standard"
+            />
+            <TextField
+              className={classes.textBox}
+              id="plantBoughtLoc"
+              label="Where did you buy the plant?"
+              variant="standard"
+            />
+          </div>
+          <div className={classes.root}>
+            <TextField
+              className={classes.numberBox}
+              id="plantPrice"
+              label="Cost"
+              variant="standard"
+            />
+            <TextField
+              className={classes.numberBox}
+              id="plantPriceCurr"
+              label="(CAD, USD)"
+              variant="standard"
             />
           </div>
         </form>
+        <div className={classes.button}>
+        <Button variant="contained" color="primary">
+          Add plant!
+        </Button>
+          </div>
       </Paper>
     </div>
   );

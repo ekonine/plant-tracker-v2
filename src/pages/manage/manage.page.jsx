@@ -2,7 +2,7 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import CustomCardList from '../../components/custom-card-list/custom-card-list.component.jsx';
 import Detail from '../detail/detail.page.jsx';
-import CustomForm from '../../components/custom-form/custom-form.component.jsx';
+import AddPlantForm from '../../components/add-plant-form/add-plant-form.component.jsx';
 import {Switch, Route} from 'react-router-dom';
 
 //Styles
@@ -54,7 +54,7 @@ export default function Manage() {
           <Detail plantData={plantData}/>
         </Route>
         <Route path="/manage/add">
-          <CustomForm />
+          <AddPlantForm />
         </Route>
       </Switch>
     </div>
