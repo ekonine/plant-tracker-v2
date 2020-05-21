@@ -1,17 +1,26 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import CustomCardList from '../../components/custom-card-list/custom-card-list.component.jsx';
+import ManageCardList from '../../components/manage-card-list/manage-card-list.component.jsx';
 import Detail from '../detail/detail.page.jsx';
 import AddPlantForm from '../../components/add-plant-form/add-plant-form.component.jsx';
 import {Switch, Route} from 'react-router-dom';
+import QuickWaterButton from '../../components/quick-water-button/quick-water-button.component.jsx';
 
 //Styles
 const useStyles = makeStyles(theme => ({
   cardContainer: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: theme.spacing(2),
-    width: '100vw'
+  },
+  mainContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '100vw',
+  },
+  button: {
+    marginTop: theme.spacing(1),
+    width: '25ch',
   },
 }));
 
@@ -21,14 +30,14 @@ export default function Manage() {
   //State
   const [plantData, setPlantData] = React.useState([
     {
-      plantId: '0', 
+      plantId: '0',
       plantSpecies: 'Monstera',
       plantNickname: 'Monstera Guy',
       plantWaterStatus: 'Watered',
       plantPrice: 30,
       plantPriceCurr: 'CAD',
       plantHouseLoc: 'Main Bedroom Shelf',
-      plantBoughtLoc: 'Hipster Shop'
+      plantBoughtLoc: 'Hipster Shop',
     },
     {
       plantId: '1',
@@ -38,20 +47,33 @@ export default function Manage() {
       plantPrice: 20,
       plantPriceCurr: 'CAD',
       plantHouseLoc: 'Living Room Shelf',
-      plantBoughtLoc: 'Hipster Shop 2'
+      plantBoughtLoc: 'Hipster Shop 2',
     },
   ]);
+
+  const [quickWaterToggle, setQuickWaterToggle] = React.useState(false);
+
+  const handleWaterToggle = () => {
+    setQuickWaterToggle(!quickWaterToggle);
+  };
 
   return (
     <div>
       <Switch>
         <Route exact path="/manage">
-          <div className={classes.cardContainer}>
-            <CustomCardList plantData={plantData}/>
+          <div className={classes.mainContainer}>
+            <QuickWaterButton
+              handleWaterToggle={handleWaterToggle}
+              quickWaterToggle={quickWaterToggle}
+              styles={classes.button}
+            />
+            <div className={classes.cardContainer}>
+              <ManageCardList plantData={plantData} />
+            </div>
           </div>
         </Route>
         <Route path="/manage/detail/:plantId">
-          <Detail plantData={plantData}/>
+          <Detail plantData={plantData} />
         </Route>
         <Route path="/manage/add">
           <AddPlantForm />

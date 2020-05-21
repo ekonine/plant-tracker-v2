@@ -63,6 +63,9 @@ export default function NavBar() {
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}>
+            <Link className={classes.link} to="/">
+              <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+            </Link>
             <Link className={classes.link} to="/manage">
               <MenuItem onClick={handleClose}>Manage</MenuItem>
             </Link>
