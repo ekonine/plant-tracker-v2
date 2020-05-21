@@ -5,6 +5,7 @@ import Detail from '../detail/detail.page.jsx';
 import AddPlantForm from '../../components/add-plant-form/add-plant-form.component.jsx';
 import {Switch, Route} from 'react-router-dom';
 import QuickWaterButton from '../../components/quick-water-button/quick-water-button.component.jsx';
+import WaterForm from '../../components/water-form/water-form.component.jsx';
 
 //Styles
 const useStyles = makeStyles(theme => ({
@@ -77,6 +78,9 @@ export default function Manage() {
         </Route>
         <Route path="/manage/add">
           <AddPlantForm />
+        </Route>
+        <Route path="/manage/water/:plantId">
+          <WaterForm />
         </Route>
       </Switch>
     </div>
