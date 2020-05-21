@@ -1,6 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles'
-import CustomCard from '../custom-card/custom-card.component';
+import ManageCard from '../manage-card/manage-card.component';
 
 const useStyles = makeStyles({
   root: {
@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   }
 })
 
-export default function CustomCardList({plantData}) {
+export default function ManageCardList({plantData}) {
   const classes = useStyles();
 
   return(
@@ -16,7 +16,7 @@ export default function CustomCardList({plantData}) {
       {
         plantData.map((plant, i) => {
           return(
-            <CustomCard 
+            <ManageCard 
               plantId={i}
               plantSpecies={plant.plantSpecies}
               plantNickname={plant.plantNickname}
