@@ -1,5 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
+import LogTable from '../../components/log-table/log-table.component.jsx';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,7 +15,7 @@ export default function Logs() {
 
   return(
     <div className={classes.root}>
-      Log page
+      <LogTable />
     </div>
   );
 }
