@@ -17,6 +17,7 @@ export default function ManageCardList({plantData}) {
         plantData.map((plant, i) => {
           return(
             <ManageCard 
+              key={i}
               plantId={i}
               plantSpecies={plant.plantSpecies}
               plantNickname={plant.plantNickname}

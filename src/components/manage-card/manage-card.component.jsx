@@ -29,7 +29,7 @@ export default function CustomCard({
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} raised={true}>
       <CardContent>
         <Typography className={classes.title} color="textPrimary" gutterBottom>
           {plantNickname}

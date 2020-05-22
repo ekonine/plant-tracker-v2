@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     width: '100vw',
   },
   button: {
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(2),
     width: '25ch',
   },
 }));
