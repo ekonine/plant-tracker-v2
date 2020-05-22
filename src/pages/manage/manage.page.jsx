@@ -6,21 +6,25 @@ import AddPlantForm from '../../components/add-plant-form/add-plant-form.compone
 import {Switch, Route} from 'react-router-dom';
 import QuickWaterButton from '../../components/quick-water-button/quick-water-button.component.jsx';
 import WaterForm from '../../components/water-form/water-form.component.jsx';
+import Button from '@material-ui/core/Button';
 
 //Styles
 const useStyles = makeStyles(theme => ({
-  cardContainer: {
+  subContainer: {
     display: 'flex',
     justifyContent: 'center',
+    flexWrap: 'wrap'
   },
   mainContainer: {
     display: 'flex',
     flexDirection: 'column',
+    flexWrap: 'wrap',
     alignItems: 'center',
-    width: '100vw',
   },
   button: {
     marginTop: theme.spacing(2),
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
     width: '25ch',
   },
 }));
@@ -50,6 +54,46 @@ export default function Manage() {
       plantHouseLoc: 'Living Room Shelf',
       plantBoughtLoc: 'Hipster Shop 2',
     },
+    {
+      plantId: '2',
+      plantSpecies: 'Zeze Plant',
+      plantNickname: 'Zeze Guy',
+      plantWaterStatus: 'Not Watered',
+      plantPrice: 20,
+      plantPriceCurr: 'CAD',
+      plantHouseLoc: 'Living Room Shelf',
+      plantBoughtLoc: 'Hipster Shop 2',
+    },
+    {
+      plantId: '3',
+      plantSpecies: 'Zeze Plant',
+      plantNickname: 'Zeze Guy',
+      plantWaterStatus: 'Not Watered',
+      plantPrice: 20,
+      plantPriceCurr: 'CAD',
+      plantHouseLoc: 'Living Room Shelf',
+      plantBoughtLoc: 'Hipster Shop 2',
+    },
+    {
+      plantId: '4',
+      plantSpecies: 'Zeze Plant',
+      plantNickname: 'Zeze Guy',
+      plantWaterStatus: 'Not Watered',
+      plantPrice: 20,
+      plantPriceCurr: 'CAD',
+      plantHouseLoc: 'Living Room Shelf',
+      plantBoughtLoc: 'Hipster Shop 2',
+    },
+    {
+      plantId: '5',
+      plantSpecies: 'Zeze Plant',
+      plantNickname: 'Zeze Guy',
+      plantWaterStatus: 'Not Watered',
+      plantPrice: 20,
+      plantPriceCurr: 'CAD',
+      plantHouseLoc: 'Living Room Shelf',
+      plantBoughtLoc: 'Hipster Shop 2',
+    },
   ]);
 
   const [quickWaterToggle, setQuickWaterToggle] = React.useState(false);
@@ -63,12 +107,17 @@ export default function Manage() {
       <Switch>
         <Route exact path="/manage">
           <div className={classes.mainContainer}>
-            <QuickWaterButton
-              handleWaterToggle={handleWaterToggle}
-              quickWaterToggle={quickWaterToggle}
-              styles={classes.button}
-            />
-            <div className={classes.cardContainer}>
+            <div className={classes.subContainer}>
+              <Button className={classes.button} variant="contained" color="primary">
+                Add Plant
+              </Button>
+              <QuickWaterButton
+                handleWaterToggle={handleWaterToggle}
+                quickWaterToggle={quickWaterToggle}
+                styles={classes.button}
+              />
+            </div>
+            <div>
               <ManageCardList plantData={plantData} />
             </div>
           </div>
