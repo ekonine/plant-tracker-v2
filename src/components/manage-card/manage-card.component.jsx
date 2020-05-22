@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    minWidth: 250,
+    minWidth: 275,
     margin: theme.spacing(2),
   },
   title: {

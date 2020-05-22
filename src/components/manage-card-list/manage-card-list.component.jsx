@@ -5,7 +5,8 @@ import ManageCard from '../manage-card/manage-card.component';
 const useStyles = makeStyles({
   root: {
     display: 'flex',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    width: '66vw'
   }
 })
 
