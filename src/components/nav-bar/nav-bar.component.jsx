@@ -76,7 +76,7 @@ export default function NavBar() {
             <Link className={classes.link} to="/logs">
               <MenuItem onClick={handleClose}>Logs</MenuItem>
             </Link>
-            <Link className={classes.link} to="/">
+            <Link className={classes.link} to="/signin">
               <MenuItem onClick={handleClose}>Sign Out</MenuItem>
             </Link>
           </Menu>
