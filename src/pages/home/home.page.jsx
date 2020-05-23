@@ -14,7 +14,7 @@ export default function Home() {
 
   return(
     <div className={classes.root}>
-      Home Page
+      Placeholder for Home Page Data
     </div>
   );
 }
