@@ -22,6 +22,12 @@ const useStyles = makeStyles(theme => ({
   },
   menuContainer: {
     marginTop: theme.spacing(5),
+    width: theme.spacing(40),
+    height: theme.spacing(50)
+  },
+  menuItem: {
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   link: {
     color: 'black',
@@ -68,16 +74,16 @@ export default function NavBar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}>
             <Link className={classes.link} to="/">
-              <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+              <MenuItem className={classes.menuItem} onClick={handleClose}>Dashboard</MenuItem>
             </Link>
             <Link className={classes.link} to="/manage">
-              <MenuItem onClick={handleClose}>Manage</MenuItem>
+              <MenuItem className={classes.menuItem} onClick={handleClose}>Manage</MenuItem>
             </Link>
             <Link className={classes.link} to="/logs">
-              <MenuItem onClick={handleClose}>Logs</MenuItem>
+              <MenuItem className={classes.menuItem} onClick={handleClose}>Logs</MenuItem>
             </Link>
             <Link className={classes.link} to="/signin">
-              <MenuItem onClick={handleClose}>Sign Out</MenuItem>
+              <MenuItem className={classes.menuItem} onClick={handleClose}>Sign Out</MenuItem>
             </Link>
           </Menu>
           <Typography variant="h6" className={classes.title}>
