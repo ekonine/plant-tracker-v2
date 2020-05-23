@@ -7,6 +7,28 @@ import SignIn from './pages/sign-in/sign-in.page.jsx';
 import {Switch, Route} from 'react-router-dom';
 
 function App() {
+  const [plants, setPlantsData] = React.useState([]);
+  const [needsRefresh, setNeedsRefresh] = React.useState(true);
+
+  const handlePlantRequest = () => {
+    fetch(`http://localhost:3001/plants/ekonine`, {
+      method: 'get'
+    }) 
+      .then(promise => promise.json())
+      .then(plants => {
+        setNeedsRefresh(false);
+        setPlantsData(plants);
+        console.log('retrieved data')
+      })
+  }
+
+  React.useEffect(() => {
+    if (needsRefresh) {
+      handlePlantRequest();
+    }
+    console.log('used effect', needsRefresh)
+  })
+
   return (
     <div className="App">
       <NavBar />
@@ -15,7 +37,7 @@ function App() {
           <Home />
         </Route>
         <Route path="/manage"> 
-          <Manage />
+          <Manage plants={plants}/>
         </Route>
         <Route path="/logs">
           <Logs />

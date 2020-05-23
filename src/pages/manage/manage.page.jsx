@@ -31,72 +31,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Manage() {
+export default function Manage(props) {
   const classes = useStyles();
-
-  //State
-  const [plantData, setPlantData] = React.useState([
-    {
-      plantId: '0',
-      plantSpecies: 'Monstera',
-      plantNickname: 'Monstera Guy',
-      plantWaterStatus: 'Watered',
-      plantPrice: 30,
-      plantPriceCurr: 'CAD',
-      plantHouseLoc: 'Main Bedroom Shelf',
-      plantBoughtLoc: 'Hipster Shop',
-    },
-    {
-      plantId: '1',
-      plantSpecies: 'Zeze Plant',
-      plantNickname: 'Zeze Guy',
-      plantWaterStatus: 'Not Watered',
-      plantPrice: 20,
-      plantPriceCurr: 'CAD',
-      plantHouseLoc: 'Living Room Shelf',
-      plantBoughtLoc: 'Hipster Shop 2',
-    },
-    {
-      plantId: '2',
-      plantSpecies: 'Zeze Plant',
-      plantNickname: 'Zeze Guy',
-      plantWaterStatus: 'Not Watered',
-      plantPrice: 20,
-      plantPriceCurr: 'CAD',
-      plantHouseLoc: 'Living Room Shelf',
-      plantBoughtLoc: 'Hipster Shop 2',
-    },
-    {
-      plantId: '3',
-      plantSpecies: 'Zeze Plant',
-      plantNickname: 'Zeze Guy',
-      plantWaterStatus: 'Not Watered',
-      plantPrice: 20,
-      plantPriceCurr: 'CAD',
-      plantHouseLoc: 'Living Room Shelf',
-      plantBoughtLoc: 'Hipster Shop 2',
-    },
-    {
-      plantId: '4',
-      plantSpecies: 'Zeze Plant',
-      plantNickname: 'Zeze Guy',
-      plantWaterStatus: 'Not Watered',
-      plantPrice: 20,
-      plantPriceCurr: 'CAD',
-      plantHouseLoc: 'Living Room Shelf',
-      plantBoughtLoc: 'Hipster Shop 2',
-    },
-    {
-      plantId: '5',
-      plantSpecies: 'Zeze Plant',
-      plantNickname: 'Zeze Guy',
-      plantWaterStatus: 'Not Watered',
-      plantPrice: 20,
-      plantPriceCurr: 'CAD',
-      plantHouseLoc: 'Living Room Shelf',
-      plantBoughtLoc: 'Hipster Shop 2',
-    },
-  ]);
+  const {plants} = props; 
 
   const [quickWaterToggle, setQuickWaterToggle] = React.useState(false);
 
@@ -124,12 +61,12 @@ export default function Manage() {
               />
             </div>
             <div>
-              <ManageCardList plantData={plantData} />
+              <ManageCardList plantData={plants} />
             </div>
           </div>
         </Route>
         <Route path="/manage/detail/:plantId">
-          <Detail plantData={plantData} />
+          <Detail plantData={plants} />
         </Route>
         <Route path="/manage/add">
           <AddPlantForm />

@@ -21,9 +21,9 @@ export default function ManageCardList({plantData}) {
             <ManageCard 
               key={i}
               plantId={i}
-              plantSpecies={plant.plantSpecies}
-              plantNickname={plant.plantNickname}
-              plantWaterStatus={plant.plantWaterStatus}
+              plantSpecies={plant.plantspecies}
+              plantNickname={plant.plantnickname}
+              plantWaterStatus={plant.plantwaterstatus}
             />
           );
         })
