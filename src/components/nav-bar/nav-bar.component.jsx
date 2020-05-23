@@ -27,6 +27,10 @@ const useStyles = makeStyles(theme => ({
     color: 'black',
     textDecoration: 'none',
   },
+  signinLink: {
+    color: 'white',
+    textDecoration: 'none'
+  }
 }));
 
 export default function NavBar() {
@@ -79,7 +83,9 @@ export default function NavBar() {
           <Typography variant="h6" className={classes.title}>
             House Plant Tracker
           </Typography>
-          <Button color="inherit">Sign In</Button>
+          <Link className={classes.signinLink} to="/signin">
+            <Button color="inherit">Sign In</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
