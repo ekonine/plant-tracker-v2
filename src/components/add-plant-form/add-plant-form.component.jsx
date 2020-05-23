@@ -9,27 +9,32 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
   },
   paper: {
-    margin: theme.spacing(4),
+    margin: theme.spacing(2),
     width: theme.spacing(60),
-    height: theme.spacing(80),
+    height: theme.spacing(45),
   },
   textBox: {
     margin: theme.spacing(1),
   },
   numberBox: {
-    margin: theme.spacing(1), 
-    width: '15ch'
+    margin: theme.spacing(1),
+    width: '15ch',
   },
   title: {
     margin: theme.spacing(2),
     fontSize: 24,
   },
   button: {
-    textAlign: 'center',
-    //One of these days I'll understand how flexbox works
-    marginTop: theme.spacing(15)
+    marginTop: theme.spacing(2),
+  },
+  formContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center' 
   }
 }));
 
@@ -38,10 +43,15 @@ export default function CustomForm() {
 
   return (
     <div className={classes.root}>
+      <Button className={classes.button} variant="contained" color="primary">
+        Back to Manage List
+      </Button>
       <Paper className={classes.paper}>
-        <Typography className={classes.title}>Add a new plant to your collection</Typography>
-        <form noValidate autoComplete="off">
-          <div className={classes.root}>
+        <form className={classes.formContainer} noValidate autoComplete="off">
+        <Typography className={classes.title}>
+          Add a new plant to your collection
+        </Typography>
+          <div>
             <TextField
               className={classes.textBox}
               id="plantSpecies"
@@ -55,7 +65,7 @@ export default function CustomForm() {
               variant="standard"
             />
           </div>
-          <div className={classes.root}>
+          <div>
             <TextField
               className={classes.textBox}
               id="plantHouseLoc"
@@ -69,7 +79,7 @@ export default function CustomForm() {
               variant="standard"
             />
           </div>
-          <div className={classes.root}>
+          <div>
             <TextField
               className={classes.numberBox}
               id="plantPrice"
@@ -83,12 +93,13 @@ export default function CustomForm() {
               variant="standard"
             />
           </div>
+          <Button
+            className={classes.button}
+            variant="contained"
+            color="primary">
+            Add plant!
+          </Button>
         </form>
-        <div className={classes.button}>
-        <Button variant="contained" color="primary">
-          Add plant!
-        </Button>
-          </div>
       </Paper>
     </div>
   );
