@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import {useHistory} from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,12 +39,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CustomForm() {
+export default function AddPlantForm(user) {
   const classes = useStyles();
+  const {push} = useHistory();
 
   return (
     <div className={classes.root}>
-      <Button className={classes.button} variant="contained" color="primary">
+      <Button className={classes.button} variant="contained" color="primary" onClick={() => {
+        push(`/manage/${user}`)
+      }}>
         Back to Manage List
       </Button>
       <Paper className={classes.paper}>

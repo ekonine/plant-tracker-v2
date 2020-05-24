@@ -73,10 +73,10 @@ export default function Manage(props) {
           <Detail user={user}/>
         </Route>
         <Route path="/manage/add">
-          <AddPlantForm />
+          <AddPlantForm user={user}/>
         </Route>
         <Route path="/manage/:user/water/:plantId">
-          <WaterForm />
+          <WaterForm user={user}/>
         </Route>
       </Switch>
     </div>
