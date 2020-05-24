@@ -8,6 +8,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+import {useHistory} from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,8 +43,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function CustomForm() {
+export default function WaterForm({user}) {
   const classes = useStyles();
+  const {push} = useHistory();
   const [units, setUnits] = React.useState('');
 
   const handleUnitSelect = event => {
@@ -53,7 +55,11 @@ export default function CustomForm() {
 
   return (
     <div className={classes.root}>
-      <Button className={classes.button} variant="contained" color="primary">Back to Manage List</Button>
+      <Button className={classes.button} variant="contained" color="primary" onClick={() => {
+        push(`/manage/${user}`)
+      }}>
+        Back to Manage List
+      </Button>
       <Paper className={classes.paper}>
         <form noValidate autoComplete="off">
           <div className={classes.root}>
@@ -92,12 +98,12 @@ export default function CustomForm() {
               label="Fertilizer Brand"
               variant="standard"
             />
-          <Button
-            className={classes.button}
-            variant="contained"
-            color="primary">
-            Water!
-          </Button>
+            <Button
+              className={classes.button}
+              variant="contained"
+              color="primary">
+              Water!
+            </Button>
           </div>
         </form>
       </Paper>
