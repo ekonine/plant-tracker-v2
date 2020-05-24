@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function NavBar() {
+export default function NavBar({user}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const classes = useStyles();
@@ -76,7 +76,7 @@ export default function NavBar() {
             <Link className={classes.link} to="/">
               <MenuItem className={classes.menuItem} onClick={handleClose}>Dashboard</MenuItem>
             </Link>
-            <Link className={classes.link} to="/manage">
+            <Link className={classes.link} to={`/manage/${user}`}>
               <MenuItem className={classes.menuItem} onClick={handleClose}>Manage</MenuItem>
             </Link>
             <Link className={classes.link} to="/logs">

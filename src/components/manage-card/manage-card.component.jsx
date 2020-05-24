@@ -44,12 +44,12 @@ export default function CustomCard({
       </CardContent>
       <CardActions>
         <Link to={{
-          pathname: `/manage/detail/${user}/${plantId}`,
+          pathname: `/manage/${user}/detail/${plantId}`,
         }} style={{textDecoration: 'none'}}>
           <Button variant="contained" size="medium" color="primary">View</Button>
         </Link>
         <Link to={{
-          pathname: `/manage/water/${user}/${plantId}`,
+          pathname: `/manage/${user}/water/${plantId}`,
         }} style={{textDecoration: 'none'}}>
           <Button variant="contained" size="medium" color="secondary">Water</Button>
         </Link>

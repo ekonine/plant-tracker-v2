@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   }
 })
 
-export default function ManageCardList({plantData}) {
+export default function ManageCardList({plantData, user}) {
   const classes = useStyles();
 
   return(
@@ -24,6 +24,7 @@ export default function ManageCardList({plantData}) {
               plantSpecies={plant.plantspecies}
               plantNickname={plant.plantnickname}
               plantWaterStatus={plant.plantwaterstatus}
+              user={user}
             />
           );
         })

@@ -27,59 +27,60 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Detail({plantData, user}) {
+
+export default function Detail() {
   const classes = useStyles();
   const {push} = useHistory();
-  const {plantId} = useParams();
+  const {plantId, user} = useParams();
+  const [selectedPlant, setSelectedPlant] = React.useState(null);
 
-  let selectedPlant = {}
-
-  if (plantData == undefined) {
-    // If directly navigated to plant
-    fetch(`http://localhost:3001/plant/${user}/${plantId}`, {
-      method: 'get'
-    })
-      .then(promise => promise.json())
-      .then(plant => {
-        selectedPlant = plant;
+  React.useEffect(() => {
+    if (selectedPlant === null) {
+      fetch(`http://localhost:3001/plants/${user}/${plantId}`, {
+        method: 'get'
       })
-    
-  } else {
-    // Else grab cached array
-    selectedPlant = plantData[plantId]
-  }
+        .then(promise => promise.json())
+        .then(plant => {
+          setSelectedPlant(plant)
+        })
+    }
+  })
 
-  return (
-    <div className={classes.root}>
-      <Button className={classes.button} variant="contained" color="primary" onClick={() => {
-        push('/manage')
-      }}>
-        Back to Manage List
-      </Button>
-      <Paper className={classes.paper}>
-        <Typography className={classes.title} color="textPrimary" gutterBottom>
-          {selectedPlant[plantId].plantSpecies}
-        </Typography>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom>
-          {selectedPlant.plantNickname}
-        </Typography>
-        <Typography className={classes.title} color="textPrimary" gutterBottom>
-          <b>House Location:</b> {selectedPlant.plantHouseLoc}
-        </Typography>
-        <Typography className={classes.title} color="textPrimary" gutterBottom>
-          <b>Bought from:</b> {selectedPlant.plantBoughtLoc}
-        </Typography>
-        <Typography className={classes.title} color="textPrimary" gutterBottom>
-          <b>Bought for:</b> {selectedPlant.plantPrice}{' '}
-          {selectedPlant.plantPriceCurr}
-        </Typography>
-      </Paper>
-      <Button className={classes.button} variant="contained" color="primary">
-      Delete plant 
-      </Button>
-    </div>
-  );
+  if (!selectedPlant) {
+    return <div></div>
+  } else {
+    return (
+      <div className={classes.root}>
+        <Button className={classes.button} variant="contained" color="primary" onClick={() => {
+          push(`/manage/${user}`)
+        }}>
+          Back to Manage List
+        </Button>
+        <Paper className={classes.paper}>
+          <Typography className={classes.title} color="textPrimary" gutterBottom>
+            {selectedPlant.plantspecies}
+          </Typography>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom>
+            {selectedPlant.plantnickname}
+          </Typography>
+          <Typography className={classes.title} color="textPrimary" gutterBottom>
+            <b>House Location:</b> {selectedPlant.planthouseloc}
+          </Typography>
+          <Typography className={classes.title} color="textPrimary" gutterBottom>
+            <b>Bought from:</b> {selectedPlant.plantboughtloc}
+          </Typography>
+          <Typography className={classes.title} color="textPrimary" gutterBottom>
+            <b>Bought for:</b> {selectedPlant.plantprice}{' '}
+            {selectedPlant.plantpricecurr}
+          </Typography>
+        </Paper>
+        <Button className={classes.button} variant="contained" color="primary">
+          Delete plant 
+        </Button>
+      </div>
+    );
+  }
 }

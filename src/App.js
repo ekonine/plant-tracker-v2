@@ -32,12 +32,12 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar user={user}/>
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/manage"> 
+        <Route path={`/manage/`}> 
           <Manage plants={plants} user={user}/>
         </Route>
         <Route path="/logs">

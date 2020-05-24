@@ -46,7 +46,7 @@ export default function Manage(props) {
   return (
     <div>
       <Switch>
-        <Route exact path="/manage">
+        <Route exact path={`/manage/${user}`}>
           <div className={classes.mainContainer}>
             <div className={classes.subContainer}>
               <Button
@@ -69,13 +69,13 @@ export default function Manage(props) {
             </div>
           </div>
         </Route>
-        <Route path="/manage/detail/:user/:plantId">
-          <Detail plantData={plants} user={user}/>
+        <Route path={ `/manage/:user/detail/:plantId` }>
+          <Detail user={user}/>
         </Route>
         <Route path="/manage/add">
           <AddPlantForm />
         </Route>
-        <Route path="/manage/water/:user/:plantId">
+        <Route path="/manage/:user/water/:plantId">
           <WaterForm />
         </Route>
       </Switch>
