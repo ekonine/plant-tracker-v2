@@ -9,9 +9,10 @@ import {Switch, Route} from 'react-router-dom';
 function App() {
   const [plants, setPlantsData] = React.useState([]);
   const [needsRefresh, setNeedsRefresh] = React.useState(true);
+  const [user, setUser] = React.useState('ekonine');
 
   const handlePlantRequest = () => {
-    fetch(`http://localhost:3001/plants/ekonine`, {
+    fetch(`http://localhost:3001/plants/${user}`, {
       method: 'get'
     }) 
       .then(promise => promise.json())
@@ -37,7 +38,7 @@ function App() {
           <Home />
         </Route>
         <Route path="/manage"> 
-          <Manage plants={plants}/>
+          <Manage plants={plants} user={user}/>
         </Route>
         <Route path="/logs">
           <Logs />

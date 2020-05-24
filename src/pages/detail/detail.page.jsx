@@ -27,10 +27,27 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Detail({plantData}) {
+export default function Detail({plantData, user}) {
   const classes = useStyles();
-  const {plantId} = useParams();
   const {push} = useHistory();
+  const {plantId} = useParams();
+
+  let selectedPlant = {}
+
+  if (plantData == undefined) {
+    // If directly navigated to plant
+    fetch(`http://localhost:3001/plant/${user}/${plantId}`, {
+      method: 'get'
+    })
+      .then(promise => promise.json())
+      .then(plant => {
+        selectedPlant = plant;
+      })
+    
+  } else {
+    // Else grab cached array
+    selectedPlant = plantData[plantId]
+  }
 
   return (
     <div className={classes.root}>
@@ -41,25 +58,28 @@ export default function Detail({plantData}) {
       </Button>
       <Paper className={classes.paper}>
         <Typography className={classes.title} color="textPrimary" gutterBottom>
-          {plantData[plantId].plantSpecies}
+          {selectedPlant[plantId].plantSpecies}
         </Typography>
         <Typography
           className={classes.title}
           color="textSecondary"
           gutterBottom>
-          {plantData[plantId].plantNickname}
+          {selectedPlant.plantNickname}
         </Typography>
         <Typography className={classes.title} color="textPrimary" gutterBottom>
-          <b>House Location:</b> {plantData[plantId].plantHouseLoc}
+          <b>House Location:</b> {selectedPlant.plantHouseLoc}
         </Typography>
         <Typography className={classes.title} color="textPrimary" gutterBottom>
-          <b>Bought from:</b> {plantData[plantId].plantBoughtLoc}
+          <b>Bought from:</b> {selectedPlant.plantBoughtLoc}
         </Typography>
         <Typography className={classes.title} color="textPrimary" gutterBottom>
-          <b>Bought for:</b> {plantData[plantId].plantPrice}{' '}
-          {plantData[plantId].plantPriceCurr}
+          <b>Bought for:</b> {selectedPlant.plantPrice}{' '}
+          {selectedPlant.plantPriceCurr}
         </Typography>
       </Paper>
+      <Button className={classes.button} variant="contained" color="primary">
+      Delete plant 
+      </Button>
     </div>
   );
 }

@@ -25,6 +25,7 @@ export default function CustomCard({
   plantSpecies,
   plantNickname,
   plantWaterStatus,
+  user
 }) {
   const classes = useStyles();
 
@@ -43,12 +44,12 @@ export default function CustomCard({
       </CardContent>
       <CardActions>
         <Link to={{
-          pathname: `/manage/detail/${plantId}`,
+          pathname: `/manage/detail/${user}/${plantId}`,
         }} style={{textDecoration: 'none'}}>
           <Button variant="contained" size="medium" color="primary">View</Button>
         </Link>
         <Link to={{
-          pathname: `/manage/water/${plantId}`,
+          pathname: `/manage/water/${user}/${plantId}`,
         }} style={{textDecoration: 'none'}}>
           <Button variant="contained" size="medium" color="secondary">Water</Button>
         </Link>

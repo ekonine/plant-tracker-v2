@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Manage(props) {
   const classes = useStyles();
-  const {plants} = props; 
+  const {plants, user} = props;
 
   const [quickWaterToggle, setQuickWaterToggle] = React.useState(false);
 
@@ -49,9 +49,13 @@ export default function Manage(props) {
         <Route exact path="/manage">
           <div className={classes.mainContainer}>
             <div className={classes.subContainer}>
-              <Button className={classes.button} variant="contained" color="primary" onClick={() => {
-                push('/manage/add')
-              }}>
+              <Button
+                className={classes.button}
+                variant="contained"
+                color="primary"
+                onClick={() => {
+                  push('/manage/add');
+                }}>
                 Add Plant
               </Button>
               <QuickWaterButton
@@ -61,17 +65,17 @@ export default function Manage(props) {
               />
             </div>
             <div>
-              <ManageCardList plantData={plants} />
+              <ManageCardList plantData={plants} user={user}/>
             </div>
           </div>
         </Route>
-        <Route path="/manage/detail/:plantId">
-          <Detail plantData={plants} />
+        <Route path="/manage/detail/:user/:plantId">
+          <Detail plantData={plants} user={user}/>
         </Route>
         <Route path="/manage/add">
           <AddPlantForm />
         </Route>
-        <Route path="/manage/water/:plantId">
+        <Route path="/manage/water/:user/:plantId">
           <WaterForm />
         </Route>
       </Switch>
