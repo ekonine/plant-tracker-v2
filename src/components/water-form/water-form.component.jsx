@@ -14,68 +14,67 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   col: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   paper: {
-    margin: theme.spacing(4),
+    margin: theme.spacing(2),
     width: theme.spacing(60),
-    height: theme.spacing(80),
+    height: theme.spacing(44),
   },
   textBox: {
     margin: theme.spacing(1),
-    width: '45ch'
+    width: '45ch',
   },
   numberBox: {
-    margin: theme.spacing(1), 
-    width: '15ch'
+    margin: theme.spacing(1),
+    width: '15ch',
   },
   title: {
-    textAlign: 'center',
     margin: theme.spacing(2),
     fontSize: 24,
   },
   button: {
-    textAlign: 'center',
-    //One of these days I'll understand how flexbox works
-    marginTop: theme.spacing(15)
-  }
+    marginTop: theme.spacing(2),
+  },
 }));
 
 export default function CustomForm() {
   const classes = useStyles();
   const [units, setUnits] = React.useState('');
 
-  const handleUnitSelect = (event) => {
+  const handleUnitSelect = event => {
     setUnits(event.target.value);
-    console.log(event.target.value)
-  }
+    console.log(event.target.value);
+  };
 
   return (
     <div className={classes.root}>
+      <Button className={classes.button} variant="contained" color="primary">Back to Manage List</Button>
       <Paper className={classes.paper}>
-        <Typography className={classes.title}>Add watering details</Typography>
         <form noValidate autoComplete="off">
           <div className={classes.root}>
+            <Typography className={classes.title}>
+              Add watering details
+            </Typography>
             <div className={classes.col}>
-            <TextField
-              className={classes.numberBox}
-              id="waterAmount"
-              label="Amount"
-              variant="standard"
-            />
+              <TextField
+                className={classes.numberBox}
+                id="waterAmount"
+                label="Amount"
+                variant="standard"
+              />
               <FormControl className={classes.numberBox}>
-                <InputLabel id='units'>Units</InputLabel>
+                <InputLabel id="units">Units</InputLabel>
                 <Select
                   labelId="units"
                   id="waterUnits"
                   value={units}
                   variant="standard"
-                  onChange={handleUnitSelect}
-                >
+                  onChange={handleUnitSelect}>
                   <MenuItem value={'ml'}>ml</MenuItem>
                   <MenuItem value={'oz'}>oz</MenuItem>
                 </Select>
@@ -93,11 +92,14 @@ export default function CustomForm() {
               label="Fertilizer Brand"
               variant="standard"
             />
+          <Button
+            className={classes.button}
+            variant="contained"
+            color="primary">
+            Water!
+          </Button>
           </div>
         </form>
-        <div className={classes.button}>
-          <Button variant="contained" color="primary">Water!</Button>
-        </div>
       </Paper>
     </div>
   );
